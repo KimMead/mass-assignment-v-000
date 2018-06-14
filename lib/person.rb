@@ -2,8 +2,7 @@ class Person
   attr_accessor :name
 
 
-  def initialize(name:)
-    @name = name
+  def initialize(attributes)
+    attributes.send {|key, value| self.send(("#{key}="), value)}
   end
-
 end
